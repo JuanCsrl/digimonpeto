@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% block content %}
+  <!-- Div Conteúdo do Admin -->
+  <div class="w-full bg-gray-300 p-4">
+    <h2 class="text-lg font-bold mb-4">Administração</h2>
+    
+    <!-- Formulário para cadastrar novo Digimon -->
+    <form action="{{ url_for('admin.cadastrar_digimon') }}" method="post" class="mb-8" enctype="multipart/form-data">
+      <h3 class="text-xl font-bold mb-2">Novo Digimon</h3>
+      <input type="text" name="nome" placeholder="Nome" class="border border-gray-400 rounded-md p-2 mb-2">
+      <input type="text" name="nivel" placeholder="nivel" class="border border-gray-400 rounded-md p-2 mb-2">
+      <input type="text" name="vida" placeholder="vida" class="border border-gray-400 rounded-md p-2 mb-2">
+      <input type="text" name="stamina" placeholder="stamina" class="border border-gray-400 rounded-md p-2 mb-2">
+      <input type="text" name="ataque" placeholder="ataque" class="border border-gray-400 rounded-md p-2 mb-2">
+      <input type="text" name="defesa" placeholder="defesa" class="border border-gray-400 rounded-md p-2 mb-2">
+      <input type="text" name="tipo" placeholder="tipo" class="border border-gray-400 rounded-md p-2 mb-2">
+      <input type="text" name="historia" placeholder="historia" class="border border-gray-400 rounded-md p-2 mb-2">
+      <input type="file" name="card" accept="image/*" class="border border-gray-400 rounded-md p-2 mb-2">
+      <input type="file" name="media" accept="image/gif, video/mp4" class="border border-gray-400 rounded-md p-2 mb-2">
+      <!-- Adicione os demais campos para cadastrar um Digimon -->
+      <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Cadastrar Digimon</button>
+    </form>
+
+    <!-- Formulário para cadastrar novo Trainer -->
+    <form action="{{ url_for('admin.cadastrar_trainer') }}" method="post" class="mb-8" enctype="multipart/form-data" >
+      <h3 class="text-xl font-bold mb-2">Novo Trainer</h3>
+      <input type="text" name="nome" placeholder="Nome" class="border border-gray-400 rounded-md p-2 mb-2">
+      <input type="text" name="afinidade" placeholder="Afinidade" class="border border-gray-400 rounded-md p-2 mb-2">
+      <input type="text" name="genero" placeholder="Genero" class="border border-gray-400 rounded-md p-2 mb-2">
+      <input type="file" name="card" accept="image/*" class="border border-gray-400 rounded-md p-2 mb-2">
+      <!-- Adicione os demais campos para cadastrar um Trainer -->
+      <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Cadastrar Trainer</button>
+    </form>
+
+    <!-- Adicione formulários para cadastrar novas entidades -->
+    <!-- Exemplo: Player Team, Stage, Stage Team -->
+  </div>
+{% endblock %}
