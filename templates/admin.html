@@ -23,7 +23,7 @@
     </form>
 
     <!-- Formulário para cadastrar novo Trainer -->
-    <form action="{{ url_for('admin.cadastrar_trainer') }}" method="post" class="mb-8" enctype="multipart/form-data" >
+    <form action="{{ url_for('admin.cadastrar_trainer') }}" method="post" class="mb-8" enctype="multipart/form-data">
       <h3 class="text-xl font-bold mb-2">Novo Trainer</h3>
       <input type="text" name="nome" placeholder="Nome" class="border border-gray-400 rounded-md p-2 mb-2">
       <input type="text" name="afinidade" placeholder="Afinidade" class="border border-gray-400 rounded-md p-2 mb-2">
@@ -33,6 +33,77 @@
       <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Cadastrar Trainer</button>
     </form>
 
+    <form action="{{ url_for('admin.cadastrar_player_team') }}" method="post" class="mb-8" enctype="multipart/form-data">
+      <h3 class="text-xl font-bold mb-2">Nova Equipe de Jogador</h3>
+      <!-- Campo de seleção para o treinador -->
+      <select name="trainer_id" class="border border-gray-400 rounded-md p-2 mb-2">
+        {% for trainer in trainers %}
+          <option value="{{ trainer.id }}">{{ trainer.name }}</option>
+        {% endfor %}
+      </select>
+    
+      <!-- Campos de seleção para os Digimons -->
+      <select name="digimon1_id" class="border border-gray-400 rounded-md p-2 mb-2">
+        {% for digimon in digimons %}
+          <option value="{{ digimon.id }}">{{ digimon.name }}</option>
+        {% endfor %}
+      </select>
+    
+      <select name="digimon2_id" class="border border-gray-400 rounded-md p-2 mb-2">
+        {% for digimon in digimons %}
+          <option value="{{ digimon.id }}">{{ digimon.name }}</option>
+        {% endfor %}
+      </select>
+    
+      <select name="digimon3_id" class="border border-gray-400 rounded-md p-2 mb-2">
+        {% for digimon in digimons %}
+          <option value="{{ digimon.id }}">{{ digimon.name }}</option>
+        {% endfor %}
+      </select>
+    
+      <!-- Botão de envio -->
+      <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Cadastrar Equipe de Jogador</button>
+    </form>
+    
+    <form action="{{ url_for('admin.cadastrar_stage') }}" method="post" class="mb-8">
+      <h3 class="text-xl font-bold mb-2">Nova Fase</h3>
+      <input type="text" name="name" placeholder="Nome da Fase" class="border border-gray-400 rounded-md p-2 mb-2">
+      <input type="text" name="nivel" placeholder="Nível da Fase" class="border border-gray-400 rounded-md p-2 mb-2">
+      <!-- Adicione os demais campos para cadastrar uma Stage -->
+      <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Cadastrar Fase</button>
+    </form>
+    
+    <form action="{{ url_for('admin.cadastrar_stage_team') }}" method="post" class="mb-8">
+      <h3 class="text-xl font-bold mb-2">Nova Equipe de Fase</h3>
+      <label for="stage_id">ID da Fase:</label>
+      <select name="stage_id" class="border border-gray-400 rounded-md p-2 mb-2">
+        {% for stage in stages %}
+          <option value="{{ stage.id }}">{{ stage.name }}</option>
+        {% endfor %}
+      </select>
+      <label for="digimon1_id">Digimon 1:</label>
+      <select name="digimon1_id" class="border border-gray-400 rounded-md p-2 mb-2">
+        {% for digimon in digimons %}
+          <option value="{{ digimon.id }}">{{ digimon.name }}</option>
+        {% endfor %}
+      </select>
+      <label for="digimon2_id">Digimon 2:</label>
+      <select name="digimon2_id" class="border border-gray-400 rounded-md p-2 mb-2">
+        {% for digimon in digimons %}
+          <option value="{{ digimon.id }}">{{ digimon.name }}</option>
+        {% endfor %}
+      </select>
+      <label for="digimon3_id">Digimon 3:</label>
+      <select name="digimon3_id" class="border border-gray-400 rounded-md p-2 mb-2">
+        {% for digimon in digimons %}
+          <option value="{{ digimon.id }}">{{ digimon.name }}</option>
+        {% endfor %}
+      </select>
+      <input type="text" name="team_status" placeholder="Status da Equipe" class="border border-gray-400 rounded-md p-2 mb-2">
+      <!-- Adicione os demais campos conforme necessário -->
+      <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Cadastrar Equipe de Fase</button>
+    </form>
+    
     <!-- Adicione formulários para cadastrar novas entidades -->
     <!-- Exemplo: Player Team, Stage, Stage Team -->
   </div>

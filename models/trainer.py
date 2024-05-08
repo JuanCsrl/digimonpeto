@@ -5,5 +5,5 @@ class Trainer(db.Model):
     name = db.Column(db.String(100))
     affinity = db.Column(db.String(50))
     gender = db.Column(db.String(50))
-    card = db.Column(db.LargeBinary)
+    card = db.Column(db.LargeBinary)  
     
